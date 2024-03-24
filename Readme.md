@@ -53,7 +53,31 @@ On a Windows machine you can set this in your shell by running the following com
 set OPEN_ALEX_CLI_DB="postgres://user:password@host:port/dbname"
 ```
 
+Once you have the database set up and the environmental variable set, you can run the following command to create the tables:
+```bash
+openalex-cli create-tables
+```
 
+You will notice there are no indexes on the tables. This is because we need to insert the data first and then create the indexes. 
+
+Once you have the data in the tables (covered later), you can run the following command to create the indexes:
+```bash 
+openalex-cli create-indexes
+```
+
+### Dropping Indexes and Tables
+
+There maybe times you need to drop the indexes or tables. This could include adding large amounts of new data. You can do this with the following commands:
+
+Drop indexes
+```bash
+openalex-cli drop-indexes
+```
+
+Drop tables
+```bash
+openalex-cli drop-tables
+```
 
 
 
