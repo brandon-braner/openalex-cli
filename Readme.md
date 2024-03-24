@@ -22,3 +22,12 @@ Their instructions can be found [here](https://docs.openalex.org/download-all-da
 
 
 
+
+# Commands
+
+## Get a list of valid filenames to pass to other commands
+```bash
+openalex-cli get-valid-filenames
+```
+
+## Download Snapshot Data
