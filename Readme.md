@@ -37,7 +37,8 @@ openalex-cli get-valid-filenames
 ### Create a database and the schemas
 
 We currently only support Postgres databases. You can set one up at any of the cloud providers such as AWS, Google Cloud, or Azure. 
-You can also run one locally using [Docker](https://hub.docker.com/_/postgres).
+You can also run one locally using [Docker](https://hub.docker.com/_/postgres). There is also an included docker-compose.yml
+file that you can use to run a local database.
 
 The SQL to create the database tables can be found in a [Github Repo](https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/create_table.sql).
 
