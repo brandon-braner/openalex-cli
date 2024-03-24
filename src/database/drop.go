@@ -7,14 +7,14 @@ import (
 	"net/http"
 )
 
-func CreateTables() {
+func DropTables() {
 	db, err := Connect()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	sqlUrl := "https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/create_table.sql"
+	sqlUrl := "https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/drop_all_tables.sql"
 
 	resp, err := http.Get(sqlUrl)
 	if err != nil {
@@ -33,17 +33,17 @@ func CreateTables() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Tables created successfully")
+	fmt.Println("Tables dropped successfully")
 }
 
-func CreateIndexes() {
+func DropIndexes() {
 	db, err := Connect()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	sqlUrl := "https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/create_indexes.sql"
+	sqlUrl := "https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/drop_indexes.sql"
 
 	resp, err := http.Get(sqlUrl)
 	if err != nil {
@@ -62,5 +62,5 @@ func CreateIndexes() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Indexes created successfully")
+	fmt.Println("Indexes dropped successfully")
 }
