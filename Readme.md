@@ -22,3 +22,97 @@ Their instructions can be found [here](https://docs.openalex.org/download-all-da
 
 
 
+
+# Commands
+
+## Get a list of valid filenames to pass to other commands
+```bash
+openalex-cli get-valid-filenames
+```
+
+## Download Snapshot Data
+
+## Database
+
+### Create a database and the schemas
+
+We currently only support Postgres databases. You can set one up at any of the cloud providers such as AWS, Google Cloud, or Azure. 
+You can also run one locally using [Docker](https://hub.docker.com/_/postgres). There is also an included docker-compose.yml
+file that you can use to run a local database.
+
+The SQL to create the database tables can be found in a [Github Repo](https://raw.githubusercontent.com/brandon-braner/openalex_sql/main/create_table.sql).
+
+Create an enviromental variable named OPEN_ALEX_CLI_DB for the database connection string. The format is `postgres://user:password@host:port/dbname`.
+
+On a Mac or Linux machine you can set this in your shell by running the following command (replace the values with your own):
+```bash
+export OPEN_ALEX_CLI_DB="postgres://user:password@host:port/dbname"
+```
+
+On a Windows machine you can set this in your shell by running the following command:
+```bash
+set OPEN_ALEX_CLI_DB="postgres://user:password@host:port/dbname"
+```
+
+Once you have the database set up and the environmental variable set, you can run the following command to create the tables:
+```bash
+openalex-cli create-tables
+```
+
+You will notice there are no indexes on the tables. This is because we need to insert the data first and then create the indexes. 
+
+Once you have the data in the tables (covered later), you can run the following command to create the indexes:
+```bash 
+openalex-cli create-indexes
+```
+
+### Dropping Indexes and Tables
+
+There maybe times you need to drop the indexes or tables. This could include adding large amounts of new data. You can do this with the following commands:
+
+Drop indexes
+```bash
+openalex-cli drop-indexes
+```
+
+Drop tables
+```bash
+openalex-cli drop-tables
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
