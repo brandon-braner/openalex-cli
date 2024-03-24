@@ -2,6 +2,7 @@ package database
 
 import (
 	"database/sql"
+	"errors"
 	_ "github.com/lib/pq"
 	"log"
 	"os"
@@ -10,6 +11,9 @@ import (
 func Connect() (*sql.DB, error) {
 	// get the database connection string from the environment
 	connectionString := os.Getenv("OPEN_ALEX_CLI_DB")
+	if connectionString == "" {
+		return nil, errors.New("OPEN_ALEX_CLI_DB environment variable not set")
+	}
 	// Connect to the database
 	db, err := sql.Open("postgres", connectionString)
 	if err != nil {
