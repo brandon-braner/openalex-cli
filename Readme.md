@@ -81,6 +81,17 @@ openalex-cli drop-tables
 ```
 
 
+# Testing
+
+Testing requires a database to be set up. We do this because the database is important to the functionality to this cli and mocking it seems like a bad idea.
+You can set up a local database using the included docker-compose.yml file. You can run the following command to start the database:
+```bash
+docker-compose up -d
+```
+
+In our build pipelines we will use a Postgres database in Github Actions service container. https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers
+
+Set the OPEN_ALEX_CLI_DB environmental variable to the connection string of the database you are using.
 
 
 

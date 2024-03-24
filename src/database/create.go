@@ -18,7 +18,7 @@ func CreateTables() {
 
 	resp, err := http.Get(sqlUrl)
 	if err != nil {
-		fmt.Println("Error getting sql file at url %s", sqlUrl)
+		fmt.Printf("Error getting sql file at url %s", sqlUrl)
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
@@ -47,7 +47,7 @@ func CreateIndexes() {
 
 	resp, err := http.Get(sqlUrl)
 	if err != nil {
-		fmt.Println("Error getting sql file at url %s", sqlUrl)
+		fmt.Printf("Error getting sql file at url %s", sqlUrl)
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
