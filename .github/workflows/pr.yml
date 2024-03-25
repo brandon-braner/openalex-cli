@@ -19,10 +19,6 @@ jobs:
 
     - name: Build
       run: go build -o openalex-cli main.go
-      with:
-        go-version: '1.22.1'
 
     - name: Test
       run: go test
-      with:
-        go-version: '1.22.1'
